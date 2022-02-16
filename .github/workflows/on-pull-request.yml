@@ -17,15 +17,15 @@ jobs:
                 python-version: 3.8
             - name: print env
               run: | 
-                current_title=$(jq --raw-output .pull_request.title "$GITHUB_EVENT_PATH")
-                old_title=$(jq --raw-output .changes.title.from "$GITHUB_EVENT_PATH")
-                echo $current_title
-                echo $old_title
                 # if title's 1st part not matched, then raise an error
                 python -m pip install requests
                 python -m pip install PyGithub
                 python -m pip install jira
                 chmod 755 .github/pr_validation.py
-                python ./.github/pr_validation.py  "$current_title" "$old_title"
+                current_title=$(jq --raw-output .pull_request.title "$GITHUB_EVENT_PATH")
+                old_title=$(jq --raw-output .changes.title.from "$GITHUB_EVENT_PATH")
+                echo $current_title
+                echo $old_title
+                python ./.github/pr_validation.py  "$GITHUB_EVENT_PATH"
               env:
                 PROJECT_NAMES: TRANS;SPM;

@@ -1,8 +1,8 @@
 import sys
 
 def validation(argv):
-    print(argv[1])
-    print(argv[2])
+    print(argv[0])
+
 
 if __name__ == '__main__':
     print ('Start Validation...')
