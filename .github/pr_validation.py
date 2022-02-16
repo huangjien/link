@@ -30,8 +30,10 @@ def validation(argv):
 if __name__ == '__main__':
     print ('Start Validation...')
     result = validation(sys.argv[1:])
-    print ('Validation Finished!')
+    
     if result :
+        print ('Validation Finished!')
         sys.exit(0)
     else :
+        print ('Validation Failed: JIRA No. Changed.')
         sys.exit(1)
