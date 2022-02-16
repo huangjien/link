@@ -15,6 +15,12 @@ def validation(argv):
     state = data['pull_request']['state']
     print('PR state: ' + state)
     # title must match some rules:
+    project_names = os.getenv('PROJECT_NAMES')
+    print('project names: ' + project_names)
+    title_prefix = title.split('-')[0]
+    if title_prefix not in project_names:
+        print (title_prefix + ' is not a valid project name. [' + project_names+']')
+        return False
     
     if 'changes' not in data:
         return True
@@ -37,5 +43,5 @@ if __name__ == '__main__':
         print ('Validation Finished!')
         sys.exit(0)
     else :
-        print ('Validation Failed: JIRA No. Changed.')
+        print ('Validation Failed: JIRA No. Changed or Title not valid.')
         sys.exit(1)
