@@ -20,7 +20,8 @@ jobs:
                 echo $current_title
                 echo $old_title
                 # if title's 1st part not matched, then raise an error
-                env
+                pwd
+                ls
                 python ./.github/pr_validation.py
               env:
                 PROJECT_NAMES: TRANS;SPM;
