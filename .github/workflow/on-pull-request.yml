@@ -1,0 +1,21 @@
+name: PR Validation
+
+on:
+    pull_request:
+        branches:
+            - "**"
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: setup python
+              uses: actions/setup-python@v2
+              with:
+                python-version: 3.8
+            - name: print env
+              run: | 
+                current_title=$(jq --raw-output .pull_request.title "$GITHUB_EVENT_PATH")
+                old_title=$(jq --raw-output .changes.title.from "$GITHUB_EVENT_PATH")
+                echo $current_title
+                echo $old_title
