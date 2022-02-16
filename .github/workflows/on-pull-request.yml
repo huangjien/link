@@ -26,6 +26,6 @@ jobs:
                 python -m pip install PyGithub
                 python -m pip install jira
                 chmod 755 .github/pr_validation.py
-                python ./.github/pr_validation.py  $current_title $old_title
+                python ./.github/pr_validation.py  "$current_title" "$old_title"
               env:
                 PROJECT_NAMES: TRANS;SPM;
