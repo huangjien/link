@@ -2,8 +2,10 @@ name: PR Validation
 
 on:
     pull_request:
-        branches:
-            - "**"
+      types:
+        - edited
+      branches:
+        - "**"
 
 jobs:
     on-pull-request:
