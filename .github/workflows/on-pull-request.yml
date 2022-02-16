@@ -6,7 +6,7 @@ on:
             - "**"
 
 jobs:
-    should-not-change-jira-no:
+    on-pull-request:
         runs-on: ubuntu-latest
         steps:
             - name: setup python
