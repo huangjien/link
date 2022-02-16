@@ -19,3 +19,4 @@ jobs:
                 old_title=$(jq --raw-output .changes.title.from "$GITHUB_EVENT_PATH")
                 echo $current_title
                 echo $old_title
+                exit 1
