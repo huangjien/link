@@ -19,7 +19,7 @@ jobs:
                 old_title=$(jq --raw-output .changes.title.from "$GITHUB_EVENT_PATH")
                 echo $current_title
                 echo $old_title
-                // if title's 1st part not matched, then raise an error
+                # if title's 1st part not matched, then raise an error
                 env
                 python pr_validation.py
               env:
