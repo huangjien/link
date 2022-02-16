@@ -12,6 +12,8 @@ def validation(argv):
     data = json.loads(f.read())
     title = data['pull_request']['title']
 
+    state = data['pull_request']['state']
+    print('PR state: ' + state)
     # title must match some rules:
     
     if 'changes' not in data:
